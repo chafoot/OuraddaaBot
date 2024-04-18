@@ -2499,7 +2499,7 @@ async def advantage_spell_chok(client, msg):
             button = [[
                         [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{from_user}:{requested_movie}")],
                         [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{from_user}:{requested_movie}")],
-                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{from_user}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{from_user}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{from_user}:{requested_movie}")],
                         [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{from_user}:{requested_movie}")],
                         [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]
             ]]
@@ -2554,10 +2554,14 @@ async def advantage_spell_chok(client, msg):
         if not movielist:
             reqst_gle = query.replace(" ", "+")
             button = [[
-                       InlineKeyboardButton("📝 ʀᴇǫᴜᴇꜱᴛ ʜᴇʀᴇ", url=f"https://t.me/HpMovieRequest")
+                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{from_user}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]
             ]]
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
+                await client.send_message(chat_id=reqst_channel, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst, reply_markup=InlineKeyboardMarkup(button))))
             k = await msg.reply_text(
                 text=script.I_CUDNT.format(mv_rqst),
                 reply_markup=InlineKeyboardMarkup(button)
@@ -2595,10 +2599,14 @@ async def advantage_spell_chok(client, msg):
             logger.exception(e)
             reqst_gle = mv_rqst.replace(" ", "+")
             button = [[
-                       InlineKeyboardButton("📝 ʀᴇǫᴜᴇꜱᴛ ʜᴇʀᴇ", url=f"https://t.me/HpMovieRequest")
+                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{from_user}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]
             ]]
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
+                await client.send_message(chat_id=reqst_channel, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst, reply_markup=InlineKeyboardMarkup(button))))
             k = await msg.reply_text(
                 text=script.I_CUDNT.format(mv_rqst),
                 reply_markup=InlineKeyboardMarkup(button)
@@ -2610,10 +2618,14 @@ async def advantage_spell_chok(client, msg):
         if not movies:
             reqst_gle = mv_rqst.replace(" ", "+")
             button = [[
-                       InlineKeyboardButton("📝 ʀᴇǫᴜᴇꜱᴛ ʜᴇʀᴇ", url=f"https://t.me/HpMovieRequest")
+                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{from_user}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]
             ]]
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
+                await client.send_message(chat_id=reqst_channel, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst), reply_markup=InlineKeyboardMarkup(button)))
             k = await msg.reply_text(
                 text=script.I_CUDNT.format(mv_rqst),
                 reply_markup=InlineKeyboardMarkup(button)
