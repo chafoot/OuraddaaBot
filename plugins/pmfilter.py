@@ -2520,7 +2520,7 @@ async def advantage_spell_chok(client, msg):
                 # await m.delete()
 
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=REQST_CHANNEL, text=script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst), reply_markup=InlineKeyboardMarkup(button))
+                await client.send_message(reqst_channel, f"-🦋 #REQUESTED_CONTENT 🦋-\n\n📝**Content Name** :`{search}`\n**Requested By**: {message.from_user.first_name}\n **USER ID**:{from_user}\n\n🗃️", reply_markup=InlineKeyboardMarkup(button))
                 k = await msg.reply_text(
                 text=script.I_CUDNT.format(mv_rqst),
                 # reply_markup=InlineKeyboardMarkup(button)
@@ -2561,7 +2561,7 @@ async def advantage_spell_chok(client, msg):
                         [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]
             ]]
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=REQST_CHANNEL, text=script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst), reply_markup=InlineKeyboardMarkup(button))
+                await client.send_message(reqst_channel,f"-🦋 #REQUESTED_CONTENT 🦋-\n\n📝**Content Name** :`{search}`\n**Requested By**: {message.from_user.first_name}\n **USER ID**:{from_user}\n\n🗃️", reply_markup=InlineKeyboardMarkup(button))
                 k = await msg.reply_text(
                 text=script.I_CUDNT.format(mv_rqst),
                 reply_markup=InlineKeyboardMarkup(button)
@@ -2606,7 +2606,7 @@ async def advantage_spell_chok(client, msg):
                         [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]
             ]]
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=REQST_CHANNEL, text=script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst), reply_markup=InlineKeyboardMarkup(button))
+                await client.send_message(reqst_channel,f"-🦋 #REQUESTED_CONTENT 🦋-\n\n📝**Content Name** :`{search}`\n**Requested By**: {message.from_user.first_name}\n **USER ID**:{from_user}\n\n🗃️", reply_markup=InlineKeyboardMarkup(button))
                 k = await msg.reply_text(
                 text=script.I_CUDNT.format(mv_rqst),
                 reply_markup=InlineKeyboardMarkup(button)
@@ -2625,7 +2625,7 @@ async def advantage_spell_chok(client, msg):
                         [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]
             ]]
             if NO_RESULTS_MSG:
-                await client.send_message(chat_id=REQST_CHANNEL, text=script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst), reply_markup=InlineKeyboardMarkup(button))
+                await client.send_message(reqst_channel,f"-🦋 #REQUESTED_CONTENT 🦋-\n\n📝**Content Name** :`{search}`\n**Requested By**: {message.from_user.first_name}\n **USER ID**:{from_user}\n\n🗃️", reply_markup=InlineKeyboardMarkup(button))
                 k = await msg.reply_text(
                 text=script.I_CUDNT.format(mv_rqst),
                 reply_markup=InlineKeyboardMarkup(button)
