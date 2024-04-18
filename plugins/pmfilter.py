@@ -301,10 +301,17 @@ async def advantage_spoll_choker(bot, query):
             else:
                 reqstr1 = query.from_user.id if query.from_user else 0
                 reqstr = await bot.get_users(reqstr1)
+                button = [[
+                        [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{from_user}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{from_user}:{requested_movie}")],
+                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]
+            ]]
                 if NO_RESULTS_MSG:
-                    await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
+                    await bot.send_message(chat_id=LOG_CHANNEL, text=script.NORSLTS.format(reqstr.id, reqstr.mention, movie), reply_markup=InlineKeyboardMarkup(button))
                 k = await query.message.edit(script.MVE_NT_FND)
-                await asyncio.sleep(10)
+                await asyncio.sleep(20)
                 await k.delete()
 #Qualities 
 @Client.on_callback_query(filters.regex(r"^qualities#"))
