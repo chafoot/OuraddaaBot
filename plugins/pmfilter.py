@@ -309,7 +309,7 @@ async def advantage_spoll_choker(bot, query):
                         [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]
             ]]
                 if NO_RESULTS_MSG:
-                    await bot.send_message(chat_id=LOG_CHANNEL, text=script.NORSLTS.format(reqstr.id, reqstr.mention, movie), reply_markup=InlineKeyboardMarkup(button))
+                    await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)), reply_markup=InlineKeyboardMarkup(button))
                 k = await query.message.edit(script.MVE_NT_FND)
                 await asyncio.sleep(20)
                 await k.delete()
