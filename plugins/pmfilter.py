@@ -300,15 +300,7 @@ async def advantage_spoll_choker(bot, query):
                 reqstr1 = query.from_user.id if query.from_user else 0
                 reqstr = await bot.get_users(reqstr1)
                 if NO_RESULTS_MSG:
-                    await bot.send_message(
-                    text=f"-🦋 #REQUESTED_CONTENT 🦋-\n\n📝**Content Name** :`{fileName}`\n**Requested By**: {username}\n **USER ID**:{user_id}\n\n🗃️",
-                    quote=True,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{user_id}:{requested_movie}")],
-                                                        [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"upalert:{user_id}:{requested_movie}")],
-                                                        [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"alalert:{user_id}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
-                                                        [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"unalert:{user_id}:{requested_movie}")],
-                                                        [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{user_id}:{requested_movie}")]]))
-                    # await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
+                    await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)))
                 k = await query.message.edit(script.MVE_NT_FND)
                 await asyncio.sleep(10)
                 await k.delete()
