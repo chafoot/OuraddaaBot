@@ -312,16 +312,15 @@ async def advantage_spoll_choker(bot, query):
                 # arun = [[[InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{from_user}:{requested_movie}")], [InlineKeyboardButton(text=f"✅Upload Done", callback_data=f"notify_userupl:{from_user}:{requested_movie}")], [InlineKeyboardButton(text=f"⚡Already Upl..", callback_data=f"notify_user_alrupl:{from_user}:{requested_movie}"),InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{from_user}:{requested_movie}")], [InlineKeyboardButton(text=f"😒Not Available", callback_data=f"notify_user_not_avail:{from_user}:{requested_movie}")], [InlineKeyboardButton("❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]]]
                 
                 if NO_RESULTS_MSG:
-                    buttons = [
+                    arudra = [
                     [InlineKeyboardButton(text="🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{from_user}:{requested_movie}")],
                     [InlineKeyboardButton(text="✅Upload Done", callback_data=f"notify_userupl:{from_user}:{requested_movie}")],
                     [InlineKeyboardButton(text="⚡Already Upl..", callback_data=f"notify_user_alrupl:{from_user}:{requested_movie}"), InlineKeyboardButton("🖊Spell Error", callback_data=f"notify_user_spelling_error:{user_id}:{requested_movie}")],
                     [InlineKeyboardButton(text="😒Not Available", callback_data=f"notify_user_not_avail:{from_user}:{requested_movie}")],
-                    [InlineKeyboardButton(text="❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]
-                    ]
+                    [InlineKeyboardButton(text="❌Reject Req", callback_data=f"notify_user_req_rejected:{from_user}:{requested_movie}")]]
 
-                    markup = InlineKeyboardMarkup(buttons)
-                    await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)), reply_markup=markup)
+                    jagud = InlineKeyboardMarkup(arudra)
+                    await bot.send_message(chat_id=LOG_CHANNEL, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, movie)), reply_markup=jagud)
                 #    await bot.send_message(chat_id=LOG_CHANNEL, text=f"-🦋 #REQUESTED_CONTENT 🦋-\n\n📝**Content Name** :`{content}`\n**Requested By**: {message.from_user.first_name}\n **USER ID**:{user_id}\n\n🗃️",
                   #                                                                                     reply_markup=InlineKeyboardMarkup([
                  #                                                                                                                       [InlineKeyboardButton(text=f"🤞Request Recieved", callback_data=f"notify_user_req_rcvd:{from_user}:{requested_movie}")],
